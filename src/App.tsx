@@ -54,10 +54,10 @@ function App() {
           />
         </FormGroup>
         </div>
-      <HTMLTable>
+      <HTMLTable compact striped>
         <thead>
         <tr>
-          <th>Doubelings</th>
+          <th></th>
           <th>Days old</th>
           <th>Years old</th>
           <th>Date</th>
