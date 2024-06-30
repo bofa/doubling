@@ -36,9 +36,9 @@ function App() {
       i > 1 ? i-1 : '',
       i < 1 ? 0 : 2**(i-1),
       round(doubleDate.diff(birthDate, 'years').years, 2),
-      doubleDate.toLocaleString(DateTime.DATE_HUGE),
+      doubleDate.toLocaleString(DateTime.DATE_FULL),
       doubleDate.diffNow(['years', 'months', 'days'])
-        .toFormat(`y 'years' M' months' d 'days'`),
+        .toFormat(`y'y' M'm' d'd'`),
     ])
 
   return (
