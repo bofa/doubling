@@ -19,7 +19,7 @@ const STORAGE_KEY = 'birthdate'
 function App() {
   const [birthDate, setBirthDate] = useState(localStorage.getItem(STORAGE_KEY)
     ? DateTime.fromISO(localStorage.getItem(STORAGE_KEY)!)
-    : DateTime.now()
+    : DateTime.now().endOf('day')
   )
 
   useEffect(() => {
@@ -31,10 +31,11 @@ function App() {
 
   console.log('birthDate', birthDate)
 
-  const doublings = Array(16).fill(0)
+  const doublings = Array(17).fill(0)
     .map((_, i) => i < 1 ? 0 : 2**(i-1))
     .map(days => birthDate.plus({ days }))
     .map((doubleDate, i) => [
+      i > 1 ? i-1 : '',
       i < 1 ? 0 : 2**(i-1),
       round(doubleDate.diff(birthDate, 'years').years, 2),
       doubleDate.toLocaleString(DateTime.DATE_HUGE),
@@ -63,6 +64,7 @@ function App() {
       <HTMLTable>
         <thead>
         <tr>
+          <th>Doubelings</th>
           <th>Days old</th>
           <th>Years old</th>
           <th>Date</th>
