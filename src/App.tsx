@@ -46,9 +46,10 @@ function App() {
       <div>
         <FormGroup label="Birthdate">
           <DateInput3
+            className={Classes.ELEVATION_1}
             locale={sv}
             reverseMonthAndYearMenus
-            className={Classes.ELEVATION_1}
+            minDate={new Date('1900-01-01')}
             value={birthDate.toISO()}
             onChange={date => date ? setBirthDate(DateTime.fromISO(date)) : null}
           />
