@@ -1,7 +1,7 @@
 import { round } from 'mathjs'
 import { DateTime } from 'luxon' 
 import { useEffect, useState } from 'react'
-import { Classes, HTMLTable } from '@blueprintjs/core'
+import { Classes, FormGroup, HTMLTable } from '@blueprintjs/core'
 import { DateInput3 } from '@blueprintjs/datetime2'
 
 import sv from "date-fns/locale/sv"
@@ -29,8 +29,6 @@ function App() {
     }
   }, [birthDate])
 
-  console.log('birthDate', birthDate)
-
   const doublings = Array(17).fill(0)
     .map((_, i) => i < 1 ? 0 : 2**(i-1))
     .map(days => birthDate.plus({ days }))
@@ -46,21 +44,16 @@ function App() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
       <div>
-        {/* <DatePicker3
-          locale={sv}
-          reverseMonthAndYearMenus
-          className={Classes.ELEVATION_1}
-          value={birthDate.toJSDate()}
-          onChange={date => date ? setBirthDate(DateTime.fromJSDate(date)) : null}
-        /> */}
-        <DateInput3
-          locale={sv}
-          reverseMonthAndYearMenus
-          className={Classes.ELEVATION_1}
-          value={birthDate.toISO()}
-          onChange={date => date ? setBirthDate(DateTime.fromISO(date)) : null}
-        />
-      </div>
+        <FormGroup label="Birthdate">
+          <DateInput3
+            locale={sv}
+            reverseMonthAndYearMenus
+            className={Classes.ELEVATION_1}
+            value={birthDate.toISO()}
+            onChange={date => date ? setBirthDate(DateTime.fromISO(date)) : null}
+          />
+        </FormGroup>
+        </div>
       <HTMLTable>
         <thead>
         <tr>
