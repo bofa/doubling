@@ -2,7 +2,7 @@ import { round } from 'mathjs'
 import { DateTime } from 'luxon' 
 import { useEffect, useState } from 'react'
 import { Classes, HTMLTable } from '@blueprintjs/core'
-import { DatePicker3 } from '@blueprintjs/datetime2'
+import { DateInput3 } from '@blueprintjs/datetime2'
 
 import sv from "date-fns/locale/sv"
 
@@ -45,12 +45,19 @@ function App() {
   return (
     <div style={{ display: 'flex', gap: 20 }}>
       <div>
-        <DatePicker3
+        {/* <DatePicker3
           locale={sv}
           reverseMonthAndYearMenus
           className={Classes.ELEVATION_1}
           value={birthDate.toJSDate()}
           onChange={date => date ? setBirthDate(DateTime.fromJSDate(date)) : null}
+        /> */}
+        <DateInput3
+          locale={sv}
+          reverseMonthAndYearMenus
+          className={Classes.ELEVATION_1}
+          value={birthDate.toISO()}
+          onChange={date => date ? setBirthDate(DateTime.fromISO(date)) : null}
         />
       </div>
       <HTMLTable>
