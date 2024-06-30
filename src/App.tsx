@@ -43,7 +43,7 @@ function App() {
     ])
 
   return (
-    <div style={{ display: 'flex', gap: 20 }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
       <div>
         {/* <DatePicker3
           locale={sv}
