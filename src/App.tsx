@@ -1,5 +1,5 @@
 import { round } from 'mathjs'
-import { DateTime, Duration } from 'luxon' 
+import { DateTime } from 'luxon' 
 import { useEffect, useState } from 'react'
 import { Classes, HTMLTable } from '@blueprintjs/core'
 import { DatePicker3 } from '@blueprintjs/datetime2'
@@ -46,14 +46,11 @@ function App() {
     <div style={{ display: 'flex', gap: 20 }}>
       <div>
         <DatePicker3
-            locale={sv}
-            className={Classes.ELEVATION_1}
-            // dayPickerProps={{ showOutsideDays, showWeekNumber }}
-            // footerElement={this.state.showFooterElement ? exampleFooterElement : undefined}
-            value={birthDate.toJSDate()}
-            onChange={date => date ? setBirthDate(DateTime.fromJSDate(date)) : null}
-            // timePickerProps={timePickerProps}
-            // {...props}
+          locale={sv}
+          reverseMonthAndYearMenus
+          className={Classes.ELEVATION_1}
+          value={birthDate.toJSDate()}
+          onChange={date => date ? setBirthDate(DateTime.fromJSDate(date)) : null}
         />
       </div>
       <HTMLTable>
